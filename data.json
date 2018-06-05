@@ -1,0 +1,57 @@
+[
+{
+"id":1,
+"name":"Bao",
+"weight":"3.5",
+"height": "53",
+"img":"./pandaRoux1.jpg",
+"species":"Panda Roux"
+}
+,
+{
+"id":2,
+"name":"Ming & Ling",
+"weight":"4.4",
+"height": "58",
+"img":"./pandaRoux2.jpg",
+"species":"Panda Roux"
+}
+,
+{
+"id":3,
+"name":"Tao",
+"weight":"61" ,
+"height": "85",
+"img":"./pandaRoux3.jpg",
+"species":"Panda"
+}
+,
+{
+"id":4,
+"name":"Huan",
+"weight":"142",
+"height": "152",
+"img":"./pandaRoux4.jpg",
+"species":"Panda"
+}
+,
+{
+"id":5,
+"name":"Mei",
+"weight":"3.1",
+"height": "55",
+"img":"./pandaRoux5.jpg",
+"species":"Koala"
+}
+,
+{
+"id":6,
+"name":"Mao",
+"weight":"4.5",
+"height": "58",
+"img":"./fontPanda.jpg",
+"species":"Koala"
+}
+
+
+]
