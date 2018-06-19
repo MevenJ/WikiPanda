@@ -55,13 +55,17 @@ function addDocument(db, key, value){
 
 
 
-function updateDocuments(db, key, value, callback) {
+function updateDocuments(db, key, value, nkey, nvalue, callback) {
   const collection = db.collection('WikiPanda');
   var search = {};
+  var update = {};
   for(i=0; i<key.length;i++){
     search[key[i]] = value[i];
   }
-  var newvalues = { $set: { img: "newImg.png" } };
+  for(i=0; i<nkey.length;i++){
+    update[nkey[i]] = nvalue[i];
+  }
+  var newvalues = { $set: update  };
   collection.updateOne(search, newvalues,function(err, docs) {
     callback();
   });
@@ -75,8 +79,11 @@ function updateDocuments(db, key, value, callback) {
 //afficher ceux respectant search?name=...&height=...&...
 app.get('/update',function(req,res){
   i = 0;
+  j = 0;
   key = [];
-  value = []
+  value = [];
+  nkey = [];
+  nvalue = [];
   if(req.query.name){
     key[i] = "name";
     value[i] = req.query.name;
@@ -102,7 +109,32 @@ app.get('/update',function(req,res){
     value[i] = req.query.species;
     i++;
   }
-  updateDocuments(db, key, value, function() { res.send(collec); })
+  if(req.query.newName){
+    nkey[j] = "name";
+    nvalue[j] = req.query.newName;
+    j++;
+  }
+  if(req.query.newWeight){
+    nkey[j] = "weight";
+    nvalue[j] = req.query.newWeight;
+    j++;
+  }
+  if(req.query.newHeight){
+    nkey[j] = "height";
+    nvalue[j] = req.query.newHeight;
+    j++;
+  }
+  if(req.query.newImg){
+    nkey[j] = "img";
+    nvalue[j] = req.query.newImg;
+    j++;
+  }
+  if(req.query.newSpecies){
+    nkey[j] = "species";
+    nvalue[j] = req.query.newSpecies;
+    j++;
+  }
+  updateDocuments(db, key, value, nkey, nvalue,function() { res.send(collec); })
 })
 
 
